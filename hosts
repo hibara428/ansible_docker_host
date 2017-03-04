@@ -1,2 +1,2 @@
-[docker]
-local ansible_connection=local
+[dockerservers]
+docker ansible_connection=local

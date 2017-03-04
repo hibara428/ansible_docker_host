@@ -1,0 +1,13 @@
+---
+- name: install sudo
+  yum: name=sudo state=installed
+
+- name: Allow wheel group to use sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    backrefs: yes
+    regexp: '^#+\s*(%wheel\s+ALL=\(ALL\)\s+ALL)'
+    line: '\1'
+    validate: "visudo -cf %s"
+    backup: yes

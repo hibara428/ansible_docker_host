@@ -1,0 +1,11 @@
+---
+- name: permissive selinux in config
+  lineinfile:
+    dest='/etc/selinux/config'
+    state=present
+    backrefs=yes
+    regexp='^SELINUX=enforcing'
+    line='SELINUX=permissive'
+
+- name: permissive selinux
+  selinux: policy=targeted state=permissive

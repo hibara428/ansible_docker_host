@@ -1,0 +1,6 @@
+---
+- name: set locale
+  shell: localectl set-locale LANG="{{ locale }}"
+  register: set_timezone  
+  changed_when: false  
+  check_mode: no

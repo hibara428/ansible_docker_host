@@ -1,0 +1,9 @@
+---
+- name: install git
+  yum: name=git state=installed
+
+- name: git set user.name
+  git_config: name=user.name scope=global value="{{ git_user_name }}"
+
+- name: git set user.email
+  git_config: name=user.email scope=global value="{{ git_user_email }}"

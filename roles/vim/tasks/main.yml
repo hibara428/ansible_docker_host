@@ -1,0 +1,19 @@
+---
+- name: yum install vim-enhanced
+  yum:
+    name=vim-enhanced
+    state=installed
+
+- name: setup vimrc
+  copy:
+    src=vimrc
+    dest=/etc/vimrc
+    owner=root
+    group=root
+    mode=0644
+    backup=yes
+
+- name: vim alias for root
+  lineinfile:
+    dest=/root/.bashrc
+    line='alias vi=\'vim\'' 

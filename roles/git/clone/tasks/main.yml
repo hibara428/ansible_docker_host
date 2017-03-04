@@ -1,0 +1,3 @@
+---
+- name: git clone
+  git: repo={{ git_clone_repo }} dest={{ git_clone_dir }}

@@ -1,0 +1,7 @@
+#dnsservers:
+#  - 8.8.8.8
+locale: ja_JP.UTF-8
+keymap: jp106
+timezone: Asia/Tokyo
+git_user_name: hibara428
+git_user_email: hibara428@gmail.com

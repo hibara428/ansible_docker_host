@@ -1,0 +1,6 @@
+---
+- name: set timezone
+  shell: timedatectl set-timezone "{{ timezone }}"
+  register: set_timezone
+  changed_when: false  
+  check_mode: no

@@ -1,0 +1,25 @@
+---
+- hosts: docker
+  become: yes
+  vars:
+    packages:
+      - bind-utils
+      - vim-enhanced
+      - wget
+
+  roles:
+    - hostname
+    #- { role: dns, when: "dnsserver is defined" }
+    - { role: locale, when: "locale is defined" }
+    - { role: keymap, when: "keymap is defined" }
+    - { role: timezone, when: "timezone is defined" }
+    - selinux/off
+    - sudo
+    #- { role: group, group_name: "{{ ssh_group }}", group_gid: "{{ ssh_gid }}" }
+    #- { role: user, user_passwd: "{{ ssh_passwd }}", user_name: "{{ ssh_user }}", user_uid: "{{ ssh_uid }}", user_group: "{{ ssh_group }}" }
+    - yum/update
+    - { role: yum/install, when: "packages is defined" }
+    #- { role: ntp, ntp_ntpserver: "{{ ntp_server }}", ntp_ntpnetwork: "{{ ntp_network }}", ntp_ntpnetmask: "{{ ntp_netmask }}" }
+    #- { role: ssh/publickey, ssh_publickey_file: "{{ ssh_publickey }}", ssh_publickey_ansible_dir: "{{ ansible_dir }}", ssh_publickey_user: "{{ ssh_user }}"}
+    - git/install
+    - vim

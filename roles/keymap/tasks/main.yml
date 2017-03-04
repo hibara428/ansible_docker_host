@@ -1,0 +1,6 @@
+---
+- name: set keymap
+  shell: localectl set-keymap "{{ keymap }}"
+  register: set_keymap
+  changed_when: false  
+  check_mode: no
