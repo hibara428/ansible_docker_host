@@ -1,5 +1,5 @@
 # ansible_docker
-ansible to construct docker server
+ansible to set docker in local
 
 ## usage
 
