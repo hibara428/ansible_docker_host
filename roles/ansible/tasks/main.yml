@@ -1,0 +1,17 @@
+---
+- name: yum install ansible
+  yum: name=ansible state=installed
+
+- name: make directory for ansible log
+  file: path=/var/log/ansible state=directory owner=root group=root mode=0755
+
+- name: set ansible.cfg (add log settings)
+  lineinfile: >-
+    dest='/etc/ansible/ansible.cfg'
+    state=present
+    backrefs=yes
+    regexp='^#log_path.*$'
+    line='log_path = /var/log/ansible/ansible.log'
+
+- name: logrotate file for ansible
+  template: src=ansible.j2 dest=/etc/logrotate.d/ansible owner=root group=root mode=0644 backup=yes
