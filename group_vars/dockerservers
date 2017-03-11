@@ -1,7 +1,21 @@
-#dnsservers:
-#  - 8.8.8.8
-locale: ja_JP.UTF-8
-keymap: jp106
-timezone: Asia/Tokyo
+docker_groups:
+  - name: testgroup1
+    gid: 2000
+  - name: testgroup2
+    gid: 2001
+docker_users:
+  - name: testuser1
+    uid: 2000
+    groups: testgroup1
+    createhome: yes
+    shell: /bin/sh
+  - name: testuser2
+    uid: 2001
+    groups: testgroup1,testgroup2
+    createhome: no
+    shell: /bin/bash
+docker_packages:
+  - epel-release
+  - python-pip
 git_user_name: hibara428
 git_user_email: hibara428@gmail.com

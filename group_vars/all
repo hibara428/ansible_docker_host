@@ -1,0 +1,30 @@
+#dnsservers:
+#  - 8.8.8.8
+base_locale: ja_JP.UTF-8
+base_keymap: jp106
+base_timezone: Asia/Tokyo
+base_packages:
+  - bind-utils
+  - crontabs
+  - curl
+  - git
+  - kbd
+  - logrotate
+  - lsof
+  - nfs-utils
+  - ntp
+  - postfix
+  - rsyslog
+  - subversion
+  - sudo
+  - unzip
+  - vim-enhanced
+  - wget
+  - zip
+
+ntp_servers:
+  - ntp.nict.jp
+  - ntp.jst.mfeed.ad.jp
+ntp_restricts:
+  - '10.0.0.0 mask 255.0.0.0'
+  - '172.16.0.0 mask 255.240.0.0' 

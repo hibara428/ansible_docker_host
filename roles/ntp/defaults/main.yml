@@ -1,0 +1,4 @@
+ntp_servers:
+  - ntp.nict.jp
+ntp_restricts:
+  - '10.0.0.0 mask 255.0.0.0'

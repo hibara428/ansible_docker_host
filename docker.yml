@@ -5,3 +5,11 @@
   become: yes
   roles:
     - ansible
+    - { role: group, add_groups: "{{ docker_groups }}" }
+    - { role: user, add_users: "{{ docker_users }}" }
+    - sudo
+    - { role: yum/install, packages: "{{ docker_packages }}" }
+    - { role: ntp, servers: "{{ ntp_servers }}", restricts: "{{ ntp_restricts }}" }
+    - { role: git/configure, user_name: "{{ git_user_name }}", user_email: "{{ git_user_email }}" }
+    - { role: vim, user: "root" }
+    - docker
