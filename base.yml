@@ -22,4 +22,4 @@
     #- { role: ntp, ntp_ntpserver: "{{ ntp_server }}", ntp_ntpnetwork: "{{ ntp_network }}", ntp_ntpnetmask: "{{ ntp_netmask }}" }
     #- { role: ssh/publickey, ssh_publickey_file: "{{ ssh_publickey }}", ssh_publickey_ansible_dir: "{{ ansible_dir }}", ssh_publickey_user: "{{ ssh_user }}"}
     - git/install
-    - vim
+    - { role: vim, user: "root" }

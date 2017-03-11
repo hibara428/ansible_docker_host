@@ -4,16 +4,28 @@
     name=vim-enhanced
     state=installed
 
-- name: setup vimrc
+- name: setup vimrc (any user)
   copy:
     src=vimrc
-    dest=/etc/vimrc
+    dest=/home/{{ user }}/.vimrc
+    owner={{ user }}
+    group={{ user }}
+    mode=0644
+    backup=yes
+  when: user != "root"
+
+- name: setup vimrc (root)
+  copy:
+    src=vimrc
+    dest=/root/.vimrc
     owner=root
     group=root
     mode=0644
     backup=yes
+  when: user == "root"
 
-- name: vim alias for root
+- name: vim alias (root)
   lineinfile:
     dest=/root/.bashrc
     line='alias vi=\'vim\'' 
+  when: user == "root"
